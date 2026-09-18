@@ -38,7 +38,11 @@ async function ensureSchema(sql) {
           is_read boolean NOT NULL DEFAULT false
         )
       `;
+      await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS name text`;
+      await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS email text`;
       await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS subject text DEFAULT ''`;
+      await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS message text`;
+      await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS created_at timestamptz NOT NULL DEFAULT now()`;
       await sql`ALTER TABLE contact_messages ADD COLUMN IF NOT EXISTS is_read boolean NOT NULL DEFAULT false`;
       await sql`
         CREATE TABLE IF NOT EXISTS subscribers (
