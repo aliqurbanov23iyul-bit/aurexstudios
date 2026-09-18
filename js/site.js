@@ -187,7 +187,12 @@
     const cover = g.cover || g.header_image || (Array.isArray(g.screenshots) && g.screenshots[0]) || '';
     const steamUrl = g.steam_url || g.steamUrl || '';
     const title = typeof g.title === 'object' ? (g.title[state.lang] || g.title.az || g.title.en) : g.title || '';
-    const desc = typeof g.description === 'object' ? tr(g.description) : (state.lang === 'az' ? (g.description_az || g.short_description_az || g.description) : (g.description_en || g.short_description_en || g.description)) || '';
+    const desc = typeof g.description === 'object'
+      ? (tr(g.description) || g.description.en || g.description.az || '')
+      : (state.lang === 'az'
+          ? (g.description_az || g.short_description_az || g.description_en || g.short_description_en || g.description)
+          : (g.description_en || g.short_description_en || g.description_az || g.short_description_az || g.description)
+        ) || '';
     const genre = typeof g.genre === 'object' ? tr(g.genre) : (Array.isArray(g.genres) && g.genres.length ? g.genres.map(x => x.description || x).join(', ') : g.genre || '');
     const platform = g.platform || (g.platforms ? Object.entries(g.platforms).filter(([, v]) => v).map(([k]) => k.charAt(0).toUpperCase() + k.slice(1)).join(' · ') : '');
     const players = typeof g.players === 'object' ? tr(g.players) : g.players || '';
@@ -227,20 +232,32 @@
     let subtitle = '';
     if (g.subtitle) {
       subtitle = typeof g.subtitle === 'object' ? (g.subtitle[state.lang] || g.subtitle.az || g.subtitle.en || '') : String(g.subtitle);
-    } else if (state.lang === 'az' && g.short_description_az) {
-      subtitle = g.short_description_az;
-    } else if (state.lang === 'en' && g.short_description_en) {
-      subtitle = g.short_description_en;
+    } else if (state.lang === 'az') {
+      subtitle = g.short_description_az || g.short_description_en || '';
+    } else if (state.lang === 'en') {
+      subtitle = g.short_description_en || g.short_description_az || '';
     }
     subtitle = (subtitle || '').trim();
 
     let fullDescription = '';
     if (state.lang === 'az') {
-      fullDescription = g.description_az || (typeof g.description === 'object' ? (g.description.az || '') : (g.description || ''));
-      if (!fullDescription && g.short_description_az) fullDescription = g.short_description_az;
+      fullDescription =
+        g.description_az ||
+        (typeof g.description === 'object' ? (g.description.az || '') : (g.description || '')) ||
+        g.description_en ||
+        (typeof g.description === 'object' ? (g.description.en || '') : '') ||
+        g.short_description_az ||
+        g.short_description_en ||
+        '';
     } else {
-      fullDescription = g.description_en || (typeof g.description === 'object' ? (g.description.en || '') : (g.description || ''));
-      if (!fullDescription && g.short_description_en) fullDescription = g.short_description_en;
+      fullDescription =
+        g.description_en ||
+        (typeof g.description === 'object' ? (g.description.en || '') : (g.description || '')) ||
+        g.description_az ||
+        (typeof g.description === 'object' ? (g.description.az || '') : '') ||
+        g.short_description_en ||
+        g.short_description_az ||
+        '';
     }
     fullDescription = (fullDescription || '').trim();
     const longDesc = fullDescription;
