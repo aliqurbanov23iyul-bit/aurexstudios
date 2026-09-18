@@ -1,0 +1,334 @@
+{
+  "site": {
+    "studioName": "Aurex Studio",
+    "tagline": {
+      "az": "Oyunlar. Hekayələr. Dünyalar.",
+      "en": "Games. Stories. Worlds."
+    },
+    "location": {
+      "az": "Azərbaycan",
+      "en": "Azerbaijan"
+    },
+    "email": "hello@aurexstudio.com",
+    "copyrightYear": "2026"
+  },
+  "homepage": {
+    "hero": {
+      "enabled": true,
+      "eyebrow": {
+        "az": "AUREX STUDIO · MÜSTƏQİL OYUN STUDİYASI",
+        "en": "AUREX STUDIO · INDEPENDENT GAME STUDIO"
+      },
+      "title": {
+        "az": "Unudulmaz oyun dünyaları yaradırıq.",
+        "en": "We create game worlds worth remembering."
+      },
+      "text": {
+        "az": "Aurex Studio hekayə, atmosfer və gameplay-i bir araya gətirən müstəqil oyunlar hazırlayır. Hər layihənin öz kimliyi, öz dünyası və öz hissi olmalıdır.",
+        "en": "Aurex Studio creates independent games that bring story, atmosphere and gameplay together. Every project should have its own identity, world and feeling."
+      },
+      "primary": {
+        "az": "Oyunlarımızı kəşf et",
+        "en": "Explore our games"
+      },
+      "secondary": {
+        "az": "Studio haqqında",
+        "en": "About the studio"
+      }
+    },
+    "featured": {
+      "enabled": true,
+      "title": {
+        "az": "Hazırkı layihəmiz",
+        "en": "Our current release"
+      },
+      "text": {
+        "az": "Aurex Studio-nun ilk yayımlanmış oyunu.",
+        "en": "Aurex Studio's first released game."
+      }
+    },
+    "about": {
+      "enabled": true,
+      "label": {
+        "az": "AUREX HAQQINDA",
+        "en": "ABOUT AUREX"
+      },
+      "title": {
+        "az": "Bir oyundan daha böyük bir studio qururuq.",
+        "en": "We are building a studio bigger than a single game."
+      },
+      "text": {
+        "az": "The Last Curse başlanğıcdır. Aurex Studio gələcəkdə fərqli janrlarda layihələr yarada bilən, hər oyunda keyfiyyətli dünya quruluşuna və oyunçu təcrübəsinə fokuslanan müstəqil studiodur.",
+        "en": "The Last Curse is the beginning. Aurex Studio is an independent studio built to create projects across different genres, with a consistent focus on world-building and player experience."
+      }
+    },
+    "games": {
+      "enabled": true,
+      "title": {
+        "az": "Oyunlarımız",
+        "en": "Our games"
+      }
+    },
+    "news": {
+      "enabled": true,
+      "title": {
+        "az": "Studio xəbərləri",
+        "en": "Studio news"
+      }
+    },
+    "community": {
+      "enabled": true,
+      "title": {
+        "az": "Aurex-i izlə",
+        "en": "Follow Aurex"
+      }
+    }
+  },
+  "games": [
+    {
+      "id": "the-last-curse",
+      "slug": "the-last-curse",
+      "steamAppId": 5055530,
+      "published": true,
+      "featured": true,
+      "title": "The Last Curse",
+      "subtitle": {
+        "az": "Birinci şəxs psixoloji qorxu oyunu",
+        "en": "A first-person psychological horror game"
+      },
+      "description": {
+        "az": "Qaranlıq, atmosferik məkanları araşdır, sirli tapmacaları həll et və hər küncdə səni izləyən qorxunun içində yolunu tap.",
+        "en": "Explore dark, atmospheric locations, solve mysterious puzzles and find your way through a fear that seems to follow you around every corner."
+      },
+      "genre": {
+        "az": "Psixoloji qorxu",
+        "en": "Psychological horror"
+      },
+      "platform": "PC · Steam",
+      "players": {
+        "az": "Tək oyunçu",
+        "en": "Single player"
+      },
+      "releaseDate": "2026-09-02",
+      "price": "$2.19 USD",
+      "steamUrl": "https://store.steampowered.com/app/5055530/The_Last_Curse/",
+      "cover": "assets/games/the-last-curse/shot-1.jpg",
+      "hero": "assets/games/the-last-curse/shot-1.jpg",
+      "hero_image": "assets/games/the-last-curse/shot-1.jpg",
+      "header_image": "assets/games/the-last-curse/shot-1.jpg",
+      "screenshots": [
+        "assets/games/the-last-curse/shot-1.jpg",
+        "assets/games/the-last-curse/shot-2.jpg",
+        "assets/games/the-last-curse/shot-3.jpg",
+        "assets/games/the-last-curse/shot-4.jpg",
+        "assets/games/the-last-curse/shot-5.jpg"
+      ]
+    }
+  ],
+  "news": [
+    {
+      "id": "last-curse-release",
+      "published": true,
+      "date": "2026-09-02",
+      "category": {
+        "az": "BURAXILIŞ",
+        "en": "RELEASE"
+      },
+      "title": {
+        "az": "The Last Curse Steam-də yayımlandı",
+        "en": "The Last Curse is now available on Steam"
+      },
+      "excerpt": {
+        "az": "Aurex Studio-nun ilk oyunu The Last Curse artıq PC üçün Steam-də mövcuddur.",
+        "en": "Aurex Studio's first game, The Last Curse, is now available on Steam for PC."
+      },
+      "image": "assets/games/the-last-curse/shot-2.jpg"
+    }
+  ],
+  "team": [],
+  "careers": [],
+  "media": [
+    {
+      "id": "studio-logo",
+      "published": true,
+      "title": {
+        "az": "Aurex Studio loqosu",
+        "en": "Aurex Studio logo"
+      },
+      "type": "PNG",
+      "file": "assets/brand/aurex-logo.png"
+    }
+  ],
+  "socials": [
+    {
+      "id": "steam",
+      "name": "Steam",
+      "published": true,
+      "url": "https://store.steampowered.com/curator/46265921-Aurex-Studio/"
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "published": true,
+      "url": "#"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "published": true,
+      "url": "#"
+    },
+    {
+      "id": "whatsapp",
+      "name": "WhatsApp",
+      "published": true,
+      "url": "#"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "published": true,
+      "url": "#"
+    }
+  ],
+  "pages": {
+    "games": {
+      "eyebrow": {
+        "az": "AUREX GAMES",
+        "en": "AUREX GAMES"
+      },
+      "title": {
+        "az": "Oyunlarımız",
+        "en": "Our games"
+      },
+      "text": {
+        "az": "Aurex Studio-nun yayımlanmış və gələcək layihələri burada bir araya gəlir. Hər oyun öz vizual kimliyini daşıyır; studio isə eyni keyfiyyət yanaşmasını qoruyur.",
+        "en": "Released and future Aurex Studio projects live here. Every game keeps its own visual identity while the studio keeps a consistent standard."
+      }
+    },
+    "about": {
+      "eyebrow": {
+        "az": "AUREX STUDIO",
+        "en": "AUREX STUDIO"
+      },
+      "title": {
+        "az": "Dünyaları oyunla qururuq.",
+        "en": "Worlds built through play."
+      },
+      "text": {
+        "az": "Aurex Studio Azərbaycandan fəaliyyət göstərən müstəqil oyun studiyasıdır. Məqsədimiz bir janra bağlanmaq yox, hər layihədə yaxşı düşünülmüş atmosfer, hekayə və gameplay yaratmaqdır.",
+        "en": "Aurex Studio is an independent game studio from Azerbaijan. Our goal is not to be tied to one genre, but to build thoughtful atmosphere, story and gameplay in every project."
+      },
+      "heading": {
+        "az": "Aurex Studio haqqında",
+        "en": "About Aurex Studio"
+      },
+      "body1": {
+        "az": "The Last Curse bizim ilk yayımlanmış oyunumuzdur, amma Aurex yalnız həmin oyundan ibarət deyil. Studio gələcək layihələr üçün genişlənə bilən strukturla qurulur: yeni janrlar, yeni vizual dillər və yeni ideyalar.",
+        "en": "The Last Curse is our first released game, but Aurex is not defined by one title. The studio is built to grow into new projects, genres, visual languages and ideas."
+      },
+      "body2": {
+        "az": "Bizim üçün əsas sual budur: oyunçu bu dünyadan nə hiss edərək çıxacaq? Bu səbəbdən vizual atmosfer, səs dizaynı və gameplay qərarlarını eyni məqsədə bağlamağa çalışırıq.",
+        "en": "The question we care about is simple: what should the player feel when they leave this world? That is why atmosphere, sound and gameplay should all serve the same purpose."
+      }
+    },
+    "team": {
+      "eyebrow": {
+        "az": "KOMANDA",
+        "en": "TEAM"
+      },
+      "title": {
+        "az": "Arxasında insanlar var.",
+        "en": "The people behind Aurex."
+      },
+      "text": {
+        "az": "Oyunlar texnologiya ilə qurulur, amma onları insanlar yaradır. Aurex-in yaradıcıları və iştirakçıları burada təqdim olunur.",
+        "en": "Games are built with technology, but made by people. Meet the creators and contributors behind Aurex."
+      }
+    },
+    "news": {
+      "eyebrow": {
+        "az": "AUREX JOURNAL",
+        "en": "AUREX JOURNAL"
+      },
+      "title": {
+        "az": "Studio xəbərləri",
+        "en": "Studio news"
+      },
+      "text": {
+        "az": "Buraxılış elanları, oyun yenilikləri və Aurex Studio-dan vacib xəbərlər.",
+        "en": "Release announcements, game updates and important news from Aurex Studio."
+      }
+    },
+    "careers": {
+      "eyebrow": {
+        "az": "KARYERA",
+        "en": "CAREERS"
+      },
+      "title": {
+        "az": "Aurex-ə qoşul.",
+        "en": "Join Aurex."
+      },
+      "text": {
+        "az": "Açıq vakansiyalar olduqda bu səhifədə paylaşacağıq. Portfolio və ümumi müraciətlər üçün əlaqə səhifəsindən yaza bilərsiniz.",
+        "en": "Open roles will be posted here. For portfolios or general applications, you can reach us through the contact page."
+      }
+    },
+    "media": {
+      "eyebrow": {
+        "az": "PRESS & MEDIA",
+        "en": "PRESS & MEDIA"
+      },
+      "title": {
+        "az": "Media kit",
+        "en": "Media kit"
+      },
+      "text": {
+        "az": "Jurnalistlər, content creator-lar və tərəfdaşlar üçün Aurex Studio materialları.",
+        "en": "Aurex Studio assets for journalists, content creators and partners."
+      }
+    },
+    "contact": {
+      "eyebrow": {
+        "az": "ƏLAQƏ",
+        "en": "CONTACT"
+      },
+      "title": {
+        "az": "Bizimlə əlaqə",
+        "en": "Talk to Aurex"
+      },
+      "text": {
+        "az": "Biznes, media, əməkdaşlıq və ümumi suallar üçün mesaj göndərə bilərsiniz.",
+        "en": "Send us a message for business, media, partnerships or general enquiries."
+      }
+    },
+    "community": {
+      "eyebrow": {
+        "az": "İCMA",
+        "en": "COMMUNITY"
+      },
+      "title": {
+        "az": "Aurex-i öz platformanda izlə.",
+        "en": "Follow Aurex your way."
+      },
+      "text": {
+        "az": "Yeni elanlar, oyun yenilikləri, trailer-lər və studio xəbərləri sosial kanallarımızda paylaşılır.",
+        "en": "Announcements, game updates, trailers and studio news are shared across our social channels."
+      }
+    },
+    "support": {
+      "eyebrow": {
+        "az": "DƏSTƏK",
+        "en": "SUPPORT"
+      },
+      "title": {
+        "az": "Oyunda problem var?",
+        "en": "Need help with a game?"
+      },
+      "text": {
+        "az": "Texniki problem və oyunla bağlı dəstək üçün bizə məlumat göndərin.",
+        "en": "Send us the details if you need technical or game support."
+      }
+    }
+  }
+}
