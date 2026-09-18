@@ -823,18 +823,96 @@
   document.getElementById('reloadSubscribers')?.addEventListener('click',()=>loadSubscribers(_subSearch,_subFilter,1));
 
   // Campaign UI
-  document.addEventListener('click', e=>{
-    if(e.target.id==='campaignSendBtn'){
-      const msg=document.getElementById('campaignMsg');
-      msg.textContent='📭 E-poçt servisi hələ qoşulmayıb. Bu funksiya mərhələ 2-də aktiv olacaq.';
-      msg.style.cssText='display:block;background:#fffbe6;border:1px solid #fde68a;color:#7a5a00;border-radius:12px;padding:12px 16px;font-size:13px;font-weight:700;margin-top:12px';
+  function setCampaignMsg(text, type='info'){
+    const msg=document.getElementById('campaignMsg');
+    if(!msg)return;
+    const styles={
+      info:'background:#eef6ff;border:1px solid #cfe2fb;color:#245ea8',
+      ok:'background:#e8fbf3;border:1px solid #b7f0d4;color:#0a6645',
+      warn:'background:#fffbe6;border:1px solid #fde68a;color:#7a5a00',
+      err:'background:#fff0f3;border:1px solid #ffd7df;color:#c83c57'
+    };
+    msg.textContent=text;
+    msg.style.cssText=`display:block;${styles[type]||styles.info};border-radius:12px;padding:12px 16px;font-size:13px;font-weight:700;margin-top:12px`;
+  }
+
+  function campaignPayload(){
+    return {
+      subject:(document.getElementById('campaignSubject')?.value||'').trim(),
+      message:(document.getElementById('campaignBody')?.value||'').trim(),
+      testEmail:(document.getElementById('campaignTestEmail')?.value||'').trim()
+    };
+  }
+
+  async function sendCampaign(mode){
+    const payload=campaignPayload();
+    if(!payload.subject){setCampaignMsg('Mövzu daxil edin.','warn');return}
+    if(!payload.message){setCampaignMsg('Mesaj məzmununu daxil edin.','warn');return}
+    if(mode==='test'&&!payload.testEmail){setCampaignMsg('Test e-poçt ünvanını daxil edin.','warn');return}
+
+    if(mode==='all'){
+      const activeText=document.querySelector('#newsletterKpis .kpi:nth-child(2) strong')?.textContent||'aktiv';
+      if(!confirm(`Kampaniya ${activeText} aktiv abunəçiyə göndəriləcək. Davam edilsin?`))return;
     }
+
+    const testBtn=document.getElementById('campaignTestBtn');
+    const sendBtn=document.getElementById('campaignSendBtn');
+    const btn=mode==='test'?testBtn:sendBtn;
+    const old=btn?.textContent||'';
+    if(btn){btn.disabled=true;btn.textContent=mode==='test'?'Göndərilir...':'Kampaniya göndərilir...'}
+    if(testBtn)testBtn.disabled=true;
+    if(sendBtn)sendBtn.disabled=true;
+
+    setCampaignMsg(mode==='test'?'Test email göndərilir...':'Kampaniya göndərilir...','info');
+
+    try{
+      const data=await api('/api/send-campaign',{
+        method:'POST',
+        body:JSON.stringify({
+          mode,
+          testEmail:payload.testEmail,
+          subject:payload.subject,
+          message:payload.message
+        })
+      });
+
+      if(mode==='test'){
+        setCampaignMsg('✅ Test email uğurla göndərildi. Inbox və Spam qovluğunu yoxlayın.','ok');
+      }else{
+        const sent=Number(data.sent||0), failed=Number(data.failed||0);
+        setCampaignMsg(failed
+          ? `⚠ ${sent} göndərildi, ${failed} uğursuz oldu.`
+          : `✅ ${sent} abunəçiyə uğurla göndərildi.`,
+          failed?'warn':'ok'
+        );
+      }
+    }catch(err){
+      setCampaignMsg('❌ '+(err.message||'E-poçt göndərilmədi.'),'err');
+    }finally{
+      if(btn){btn.disabled=false;btn.textContent=old}
+      if(testBtn)testBtn.disabled=false;
+      if(sendBtn)sendBtn.disabled=false;
+    }
+  }
+
+  document.addEventListener('click', async e=>{
+    if(e.target.id==='campaignTestBtn'){
+      await sendCampaign('test');
+      return;
+    }
+
+    if(e.target.id==='campaignSendBtn'){
+      await sendCampaign('all');
+      return;
+    }
+
     if(e.target.id==='campaignPreviewBtn'){
       const subject=document.getElementById('campaignSubject')?.value||'(mövzu yoxdur)';
       const body=document.getElementById('campaignBody')?.value||'(məzmun yoxdur)';
       const box=document.getElementById('campaignPreviewBox');
+      if(!box)return;
       box.style.display='block';
-      box.innerHTML=`<p style="margin:0 0 8px;font-size:12px;font-weight:800;color:#5278aa">MÖVZu: ${esc(subject)}</p><hr style="border:0;border-top:1px solid #e0eaf6;margin:10px 0"><pre style="white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.65;color:var(--text);margin:0">${esc(body)}</pre>`;
+      box.innerHTML=`<p style="margin:0 0 8px;font-size:12px;font-weight:800;color:#5278aa">MÖVZU: ${esc(subject)}</p><hr style="border:0;border-top:1px solid #e0eaf6;margin:10px 0"><pre style="white-space:pre-wrap;font-family:inherit;font-size:13px;line-height:1.65;color:var(--text);margin:0">${esc(body)}</pre>`;
     }
   });
 
